@@ -66,6 +66,7 @@ class BilbyInject:
             parameter_conversion=self.parameter_conversion,
             waveform_arguments=self.waveform_arguments)
         # Add snippet to check if the signal is in the data segment
+        self.ifos.check_signal_duration(parameters=self.injection_parameters, raise_error=False)
         self.ifos.inject_signal(waveform_generator=waveform_generator, 
                                 parameters=self.injection_parameters)
         return self.ifos
